@@ -6,3 +6,9 @@ body {
 a {
   color: #00B7FF;
 }
+body .index-list {
+  background: green;
+}
+body .users-list {
+  background: blue;
+}
