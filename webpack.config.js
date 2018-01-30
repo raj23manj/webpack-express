@@ -7,7 +7,8 @@ const config = {
   entry: './public/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: 'dist/'
   },
   module: {
     rules:[
@@ -21,6 +22,16 @@ const config = {
         use: ExtractTextPlugin.extract({
           use: ["css-loader", "less-loader"]
         }) 
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: [
+                {
+                  loader: 'url-loader',
+                  options: { limit: 40000 }
+                },
+                'image-webpack-loader'
+              ]
       }
     ]
   },
