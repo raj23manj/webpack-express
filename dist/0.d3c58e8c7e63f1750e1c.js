@@ -20,6 +20,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   const total = Object(__WEBPACK_IMPORTED_MODULE_2__sum__["a" /* default */])(5,5);
   const image = document.createElement('img');
   
+  console.log('On Fire users');
   console.log(total);
   console.log('hurray users index');
   

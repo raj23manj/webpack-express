@@ -20,6 +20,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   const total = Object(__WEBPACK_IMPORTED_MODULE_2__sum__["a" /* default */])(10,5);
   const image = document.createElement('img');
   
+  console.log('On Fire index');
   console.log(total);
   console.log('hurray walle index');
   
