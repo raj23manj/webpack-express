@@ -10,7 +10,7 @@ export default() => {
   
   console.log('On Fire index');
   console.log(total);
-  console.log('hurray walle index');
+  console.log('hurray walle index 23');
   
   image.src = walle;
   document.body.appendChild(image);

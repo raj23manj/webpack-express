@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -24,6 +25,17 @@ app.use(cookieParser());
 app.use(lessMiddleware(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(['/dist', '/users/dist'],  express.static(__dirname + '/dist'));
+
+if(process.env.NODE_ENV !== 'production'){
+  // only development mode
+  const webpackMiddleware = require('webpack-dev-middleware');
+  const webpack = require('webpack');
+  const webpackConfig = require('./webpack.config.js');
+  app.use(webpackMiddleware(webpack(webpackConfig)));
+}else{
+  
+}
+
 
 app.use('/', index);
 app.use('/users', users);
