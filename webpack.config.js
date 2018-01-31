@@ -1,13 +1,20 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const VENDOR_LIBS = [
+  "jquery", "lodash", "popper.js", "bootstrap"
+];
 
 const config = {
-  entry: './public/index.js',
+  // entry: './public/index.js',
+  // vendor specific and client specific
+  entry: {
+    bundle: './public/index.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: 'dist/'
   },
   module: {
@@ -16,6 +23,10 @@ const config = {
         use: 'babel-loader',
         test: /\.js$/,
         exclude: /(node_modules|routes|)/
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader" ,"css-loader"]
       },
       {
         test: /\.less$/,
@@ -35,7 +46,12 @@ const config = {
               ]
       }
     ]
-   }
+  },
+  plugins:[
+    new webpack.optimize.CommonsChunkPlugin({
+     names: 'vendor'
+   })
+  ]
  //  ,plugins: [
  //    new ExtractTextPlugin("styles.css")
  // ]
