@@ -5,7 +5,8 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "node ./bin/www",
-    "build": "npm run clean && webpack"
+    "build": "npm run clean && webpack",
+    "build-prod": "NODE_ENV=production npm run clean && webpack -p"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
@@ -32,6 +33,7 @@
     "image-webpack-loader": "^4.0.0",
     "less-loader": "^4.0.5",
     "style-loader": "^0.20.1",
+    "uglifyjs-webpack-plugin": "^1.1.8",
     "url-loader": "^0.6.2",
     "webpack": "^3.10.0"
   }

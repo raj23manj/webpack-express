@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const VENDOR_LIBS = [
   "jquery", "lodash", "popper.js", "bootstrap"
@@ -49,6 +50,9 @@ const config = {
     ]
   },
   plugins:[
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }),
     new webpack.optimize.CommonsChunkPlugin({
      names: ['vendor', 'manifest']
     })
@@ -56,6 +60,9 @@ const config = {
     new HtmlWebpackPlugin({
       filename: 'generate_scripts.html',
       template: 'views/partials/generate_scripts.jade'
+    }),
+    new UglifyJsPlugin({
+      sourceMap: true
     })
   ]
  //  ,plugins: [

@@ -1,6 +1,6 @@
 
-import walle from '../images/walle.jpeg'
-import '../stylesheets/index.less' 
+import walle from '../images/walle.jpeg';
+import '../stylesheets/index.less'; 
 
 import sum from './sum'
 
