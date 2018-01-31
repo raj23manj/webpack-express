@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+//const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const VENDOR_LIBS = [
   "jquery", "lodash", "popper.js", "bootstrap"
 ];
@@ -14,7 +15,7 @@ const config = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name].[chunkhash].js',
     publicPath: 'dist/'
   },
   module: {
@@ -49,8 +50,13 @@ const config = {
   },
   plugins:[
     new webpack.optimize.CommonsChunkPlugin({
-     names: 'vendor'
-   })
+     names: ['vendor', 'manifest']
+    })
+    ,
+    new HtmlWebpackPlugin({
+      filename: 'generate_scripts.html',
+      template: 'views/partials/generate_scripts.jade'
+    })
   ]
  //  ,plugins: [
  //    new ExtractTextPlugin("styles.css")
