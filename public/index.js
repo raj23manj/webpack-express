@@ -2,8 +2,8 @@
 // 
 // import dog from './images/doggy.jpg'
 import './stylesheets/style.less'
-import './stylesheets/index.less'
-import './stylesheets/users.less'
+// import './stylesheets/index.less'
+// import './stylesheets/users.less'
 // 
 // import sum from './javascripts/sum'
 // const total = sum(10,5);

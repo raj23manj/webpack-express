@@ -1,6 +1,6 @@
 
 import dog from '../images/doggy.jpg'
-// import '../stylesheets/index.less' => not working
+import '../stylesheets/users.less'
 
 import sum from './sum'
 

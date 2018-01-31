@@ -19,9 +19,10 @@ const config = {
       },
       {
         test: /\.less$/,
-        use: ExtractTextPlugin.extract({
-          use: ["css-loader", "less-loader"]
-        }) 
+        use: ["style-loader" ,"css-loader", "less-loader"]
+        // use: ExtractTextPlugin.extract({
+        //   use: ["css-loader", "less-loader"]
+        // }) 
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/,
@@ -34,10 +35,10 @@ const config = {
               ]
       }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin("styles.css")
- ]
+   }
+ //  ,plugins: [
+ //    new ExtractTextPlugin("styles.css")
+ // ]
 };
 
 module.exports = config;
